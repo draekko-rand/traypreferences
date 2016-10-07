@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <integer name="config_shortAnimTime">200</integer>
+    <integer name="config_mediumAnimTime">400</integer>
+    <integer name="config_longAnimTime">500</integer>
+    <integer name="config_activityShortDur">150</integer>
+    <integer name="config_activityDefaultDur">220</integer>
+
+    <bool name="config_actionMenuItemAllCaps">true</bool>
+
+</resources>

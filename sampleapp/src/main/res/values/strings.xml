@@ -1,0 +1,35 @@
+<resources>
+
+    <string name="app_name">TrayPreferences</string>
+
+    <string name="about">About</string>
+    <string name="close">Close</string>
+
+    <string name="advanced">Advanced</string>
+    <string name="settings">Settings</string>
+
+    <string name="category_one_lookahead_1">One</string>
+    <string name="category_one_lookahead_2">Two</string>
+    <string name="category_one_lookahead_3">Three</string>
+    <string name="category_one_lookahead_4">Four</string>
+    <string name="category_one_lookahead_5">Five</string>
+    <string name="category_one_lookahead_6">Six</string>
+    <string name="category_one_lookahead_7">Seven</string>
+    <string name="category_one_lookahead_8">Eight</string>
+    <string name="category_one_lookahead_9">Nine</string>
+
+    <string name="category_one">Category 1</string>
+    <string name="general_category_one">General Category 1</string>
+    <string name="category_one_switch_title">Switch Category 1</string>
+    <string name="category_one_dialog_title">Dialog Title Category 1</string>
+    <string name="category_one_list_title">List Title Category 1</string>
+    <string name="category_one_summary">Summary Category 1</string>
+    <string name="category_one_list_dialog_title">List Dialog Title Category 1</string>
+    <string name="category_one_lookahead_title">Title Look Ahead Category 1</string>
+    <string name="display_category_one">Display Category 1</string>
+    <string name="category_one_checkbox">Checkbox Category 1</string>
+    <string name="category_one_checkbox_summary"></string>
+
+    <string name="debugger">Enable debug log output</string>
+
+</resources>
