@@ -1,20 +1,23 @@
-== TrayPreferences
-
+##TrayPreferences
+===
 
 UI replacement for Android SharedPreferences using the tray content provider as its backend.
 
 
-===Note
+####Note
+===
 
 * Supports only API 23 at this time.
-* Uses tray the SharedPreference replacement as its content provider.
+* Replaces SharedPreference with the tray project as its content provider to emulate SharedPreference. (https://github.com/grandcentrix/tray)
 
 
-===License
+####License
+===
 
+Copyright 2016 Benoit Touchette 
 
-Copyright 2016 Benoit Touchette
 Portions of code Copyright (C) 2007 The Android Open Source Project
+
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
