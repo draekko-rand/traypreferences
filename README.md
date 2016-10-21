@@ -1,5 +1,5 @@
 ##TrayPreferences
-UI replacement for Android SharedPreferences using the tray content provider as its backend.
+UI replacement for Android SharedPreferences using the Tray content provider as its backend.
 
   
 ##Note
