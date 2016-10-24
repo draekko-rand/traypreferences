@@ -183,7 +183,7 @@ public class TrayListFragment extends Fragment {
      * that is to be shown when the list is empty.
      * 
      * <p>If you are overriding this method with your own custom content,
-     * consider including the standard layout {@link R.layout#list_content}
+     * consider including the standard layout {link R.layout#list_content}
      * in your layout file, so that you continue to retain all of the standard
      * behavior of ListFragment.  In particular, this is currently the only
      * way to have the built-in indeterminant progress state be shown.

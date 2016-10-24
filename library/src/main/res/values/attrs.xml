@@ -84,6 +84,10 @@
         <attr name="icon" />
         <!-- The fragment that is displayed when the user selects this item. -->
         <attr name="fragment" format="string" />
+
+        <attr name="iconColorState" format="color|reference"/>
+        <attr name="textPrimaryColorState" format="color|reference" />
+        <attr name="textSecondaryColorState" format="color|reference" />
     </declare-styleable>
 
     <!-- Base attributes available to PreferenceFragment. -->

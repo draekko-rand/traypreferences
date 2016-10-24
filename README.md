@@ -4,8 +4,9 @@ UI replacement for Android SharedPreferences using the Tray content provider as 
   
 ##Note
 * Replaces SharedPreference with the tray project as its content provider to emulate SharedPreference. (https://github.com/grandcentrix/tray)
-* The project requires Android Studio 2.2
-* Only supports API 23 at this time.
+* The project requires Android Studio 2.2.2
+* Supports API 21+
+* Uses java 1.8
 
   
 ##License

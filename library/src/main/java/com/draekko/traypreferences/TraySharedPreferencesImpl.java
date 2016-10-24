@@ -29,6 +29,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
@@ -44,8 +46,10 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
 
     private Map<String, Object> mMap;
     private static final Object mContent = new Object();
-    private final WeakHashMap<OnSharedPreferenceChangeListener, Object> mListeners =
-            new WeakHashMap<OnSharedPreferenceChangeListener, Object>();
+    //private final WeakHashMap<OnSharedPreferenceChangeListener, Object> mListeners =
+    //        new WeakHashMap<OnSharedPreferenceChangeListener, Object>();
+    private static List<OnSharedPreferenceChangeListener> mListeners =
+            new ArrayList<OnSharedPreferenceChangeListener>();
 
     public TraySharedPreferencesImpl(Context context) {
         mContext = context;
@@ -74,9 +78,17 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
         return traySharedPreferences;//appPreferences;
     }
 
+    public void notifyListeners(final String key) {
+        if (mListeners != null) {
+            for (OnSharedPreferenceChangeListener listener : mListeners) {
+                listener.onSharedPreferenceChanged(this, key);
+            }
+        }
+    }
+
     public void registerOnSharedPreferenceChangeListener(OnSharedPreferenceChangeListener listener) {
         synchronized(this) {
-            mListeners.put(listener, mContent);
+            mListeners.add(listener);
         }
     }
 
@@ -190,6 +202,8 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
             throw new IllegalArgumentException("invalid key parameter!");
         }
 
+        notifyListeners(key);
+
         appPreferences.put(key, value);
     }
 
@@ -198,6 +212,8 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
         if (key == null || key.isEmpty()) {
             throw new IllegalArgumentException("invalid key parameter!");
         }
+
+        notifyListeners(key);
 
         if (values == null || values.size() < 1) {
             appPreferences.put(key, null);
@@ -226,6 +242,8 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
             throw new IllegalArgumentException("invalid key parameter!");
         }
 
+        notifyListeners(key);
+
         appPreferences.put(key, value);
     }
 
@@ -234,6 +252,8 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
         if (key == null || key.isEmpty()) {
             throw new IllegalArgumentException("invalid key parameter!");
         }
+
+        notifyListeners(key);
 
         appPreferences.put(key, value);
     }
@@ -244,6 +264,8 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
             throw new IllegalArgumentException("invalid key parameter!");
         }
 
+        notifyListeners(key);
+
         appPreferences.put(key, value);
     }
 
@@ -253,6 +275,8 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
             throw new IllegalArgumentException("invalid key parameter!");
         }
 
+        notifyListeners(key);
+
         appPreferences.put(key, value);
     }
 
@@ -261,6 +285,8 @@ final class TraySharedPreferencesImpl implements TraySharedPreferences {
         if (key == null || key.isEmpty()) {
             throw new IllegalArgumentException("invalid key parameter!");
         }
+
+        notifyListeners(key);
 
         appPreferences.remove(key);
     }

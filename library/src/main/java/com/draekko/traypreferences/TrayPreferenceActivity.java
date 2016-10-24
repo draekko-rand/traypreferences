@@ -26,6 +26,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
@@ -36,6 +37,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
 import android.view.LayoutInflater;
@@ -264,13 +266,41 @@ public abstract class TrayPreferenceActivity extends TrayListActivity implements
         private LayoutInflater mInflater;
         private int mLayoutResId;
         private boolean mRemoveIconIfEmpty;
+        private boolean mSinglePane;
+        private ColorStateList iconColorStateList;
+        private ColorStateList textPrimaryColorStateList;
+        private ColorStateList textSecondaryColorStateList;
 
         public HeaderAdapter(Context context, List<Header> objects, int layoutResId,
-                boolean removeIconBehavior) {
+                boolean removeIconBehavior, boolean singlePane) {
             super(context, 0, objects);
             mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mLayoutResId = layoutResId;
             mRemoveIconIfEmpty = removeIconBehavior;
+            mSinglePane = singlePane;
+
+            if (!mSinglePane) {
+                int[] icon_attrs = new int[] { R.attr.iconColorState };
+                TypedArray ta = getContext().obtainStyledAttributes(icon_attrs);
+                iconColorStateList = ta.getColorStateList(0);
+                if (iconColorStateList == null) {
+                    iconColorStateList = getContext().getColorStateList(R.color.list_icon_material);
+                }
+
+                int[] text_prim_attrs = new int[] { R.attr.textPrimaryColorState };
+                ta = getContext().obtainStyledAttributes(text_prim_attrs);
+                textPrimaryColorStateList = ta.getColorStateList(0);
+                if (textPrimaryColorStateList == null) {
+                    textPrimaryColorStateList = getContext().getColorStateList(R.color.list_text_primary_material);
+                }
+
+                int[] text_sec_attrs = new int[] { R.attr.textSecondaryColorState };
+                ta = getContext().obtainStyledAttributes(text_sec_attrs);
+                textSecondaryColorStateList = ta.getColorStateList(0);
+                if (textSecondaryColorStateList == null) {
+                    textSecondaryColorStateList = getContext().getColorStateList(R.color.list_text_secondary_material);
+                }
+            }
         }
 
         @Override
@@ -290,7 +320,7 @@ public abstract class TrayPreferenceActivity extends TrayListActivity implements
                 holder = (HeaderViewHolder) view.getTag();
             }
 
-            // All view fields must be updated every time, because the view may be recycled 
+            // All view fields must be updated every time, because the view may be recycled
             Header header = getItem(position);
             if (mRemoveIconIfEmpty) {
                 if (header.iconRes == 0) {
@@ -298,9 +328,15 @@ public abstract class TrayPreferenceActivity extends TrayListActivity implements
                 } else {
                     holder.icon.setVisibility(View.VISIBLE);
                     holder.icon.setImageResource(header.iconRes);
+                    if (!mSinglePane) {
+                        holder.icon.setImageTintList(iconColorStateList);
+                    }
                 }
             } else {
                 holder.icon.setImageResource(header.iconRes);
+                if (!mSinglePane) {
+                    holder.icon.setImageTintList(iconColorStateList);
+                }
             }
             holder.title.setText(header.getTitle(getContext().getResources()));
             CharSequence summary = header.getSummary(getContext().getResources());
@@ -309,6 +345,10 @@ public abstract class TrayPreferenceActivity extends TrayListActivity implements
                 holder.summary.setText(summary);
             } else {
                 holder.summary.setVisibility(View.GONE);
+            }
+            if (!mSinglePane) {
+                holder.title.setTextColor(textPrimaryColorStateList);
+                holder.summary.setTextColor(textSecondaryColorStateList);
             }
 
             return view;
@@ -624,8 +664,9 @@ public abstract class TrayPreferenceActivity extends TrayListActivity implements
                 showBreadCrumbs(initialTitleStr, initialShortTitleStr);
             }
         } else if (mHeaders.size() > 0) {
-            setListAdapter(new HeaderAdapter(this, mHeaders, mPreferenceHeaderItemResId,
-                    mPreferenceHeaderRemoveEmptyIcon));
+            setListAdapter(new HeaderAdapter(this,
+                                             mHeaders, mPreferenceHeaderItemResId,
+                                             mPreferenceHeaderRemoveEmptyIcon, mSinglePane));
             if (!mSinglePane) {
                 // Multi-pane.
                 getListView().setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
@@ -633,6 +674,10 @@ public abstract class TrayPreferenceActivity extends TrayListActivity implements
                     setSelectedHeader(mCurHeader);
                 }
                 mPrefsContainer.setVisibility(View.VISIBLE);
+
+                Log.d(TAG, "Multi pane header menu");
+            } else {
+                Log.d(TAG, "Single pane header menu");
             }
         } else {
             // If there are no headers, we are in the old "just show a screen

@@ -46,6 +46,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.draekko.traypreferences.R;
+import com.draekko.traypreferences.widget.TrayPreferenceImageView;
 
 /**
  * Represents the basic Preference UI building
@@ -545,7 +546,7 @@ public class TrayPreference implements Comparable<TrayPreference> {
             }
         }
 
-        final ImageView imageView = (ImageView) view.findViewById(R.id.icon);
+        final TrayPreferenceImageView imageView = (TrayPreferenceImageView) view.findViewById(R.id.icon);
         if (imageView != null) {
             if (mIconResId != 0 || mIcon != null) {
                 if (mIcon == null) {
