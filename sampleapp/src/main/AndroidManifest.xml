@@ -16,8 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".About" />
-        <activity android:name=".CategoryOne"></activity>
-        <activity android:name=".SampleAppPreferences"></activity>
+        <activity android:name=".SampleAppPreferences"/>
     </application>
 
 </manifest>

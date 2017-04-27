@@ -336,7 +336,7 @@
         <!-- Tint to apply to the thumb drawable. -->
         <attr name="thumbTint" format="color" />
         <!-- Blending mode used to apply the thumb tint. -->
-        <attr name="thumbTintMode">
+        <attr name="tsThumbTintMode">
             <!-- The tint is drawn on top of the drawable.
                  [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3" />
@@ -356,11 +356,11 @@
             <enum name="add" value="16" />
         </attr>
         <!-- Drawable displayed at each progress position on a seekbar. -->
-        <attr name="tickMark" format="reference" />
+        <attr name="tsTickMark" format="reference" />
         <!-- Tint to apply to the tick mark drawable. -->
-        <attr name="tickMarkTint" format="color" />
+        <attr name="tsTickMarkTint" format="color" />
         <!-- Blending mode used to apply the tick mark tint. -->
-        <attr name="tickMarkTintMode">
+        <attr name="tsTickMarkTintMode">
             <!-- The tint is drawn on top of the drawable.
                  [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3" />

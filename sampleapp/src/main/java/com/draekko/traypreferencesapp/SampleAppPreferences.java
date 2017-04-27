@@ -20,13 +20,11 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.draekko.traypreferences.TrayPreferenceActivity;
-import com.draekko.traypreferences.TrayPreferenceFragment;
 
 import java.util.List;
 
