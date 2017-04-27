@@ -184,8 +184,8 @@ public class About extends Activity {
 
         String language = null;
         final Locale current = c_context.getResources().getConfiguration().locale;
-        if (!current.getLanguage().toString().isEmpty()) {
-            language = current.getLanguage().toString();
+        if (!current.getLanguage().isEmpty()) {
+            language = current.getLanguage();
         }
         if (language == null) {
             return "en";

@@ -37,7 +37,8 @@
         custom:key="about"
         custom:icon="@mipmap/about_preferences"
         custom:title="@string/about">
-        <intent android:action="com.draekko.clocklock.About"/>
+        <intent android:targetPackage="com.draekko.traypreferencesapp"
+            android:targetClass="com.draekko.traypreferencesapp.About" />
     </header>
 
 </preference-headers>
