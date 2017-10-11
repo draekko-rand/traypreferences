@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SimonSickle/traypreferences.svg?branch=master)](https://travis-ci.org/SimonSickle/traypreferences)
+
 ##TrayPreferences
 UI replacement for Android SharedPreferences using the Tray content provider as its backend.
 
