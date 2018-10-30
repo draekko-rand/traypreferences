@@ -1,15 +1,27 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 repositories {
     jcenter()
     google()
 }
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
 android {
     lintOptions {
         abortOnError false
     }
-    
+
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
@@ -38,3 +50,29 @@ dependencies {
     implementation 'net.grandcentrix.tray:tray:0.12.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
 }
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'traypreferences'
+
+    publishedGroupId = 'com.simonsickle.traypreferences'
+    libraryName = 'TrayPreferences'
+    artifact = 'traypreferences'
+
+    libraryDescription = 'This is a library proving near native ui manipulation for Tray by GrandCentrix'
+
+    siteUrl = 'https://github.com/simonsickle/traypreferences'
+    gitUrl = 'https://github.com/simonsickle/traypreferences.git'
+
+    libraryVersion = '1.0'
+
+    developerId = 'simonsickle'
+    developerName = 'Simon Sickle'
+    developerEmail = 'simon@simonsickle.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'upload.gradle'
