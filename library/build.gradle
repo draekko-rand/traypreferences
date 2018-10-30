@@ -26,7 +26,7 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -56,15 +56,15 @@ ext {
     bintrayName = 'traypreferences'
 
     publishedGroupId = 'com.simonsickle.traypreferences'
-    libraryName = 'TrayPreferences'
-    artifact = 'traypreferences'
+    libraryName = 'library'
+    artifact = 'library'
 
     libraryDescription = 'This is a library proving near native ui manipulation for Tray by GrandCentrix'
 
     siteUrl = 'https://github.com/simonsickle/traypreferences'
     gitUrl = 'https://github.com/simonsickle/traypreferences.git'
 
-    libraryVersion = '1.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'simonsickle'
     developerName = 'Simon Sickle'

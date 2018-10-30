@@ -102,7 +102,7 @@
         <!-- The layout for the Preference Activity. This should rarely need to be changed. -->
         <attr name="layout" />
         <!-- The layout for the Preference Header. This should rarely need to be changed. -->
-        <attr name="headerLayout" format="reference|integer" />
+        <attr name="ex_headerLayout" format="reference|integer" />
         <!-- true if the Icon view will be removed when there is none and thus not showing
              the fixed margins. -->
         <attr name="headerRemoveIconIfEmpty" format="boolean" />

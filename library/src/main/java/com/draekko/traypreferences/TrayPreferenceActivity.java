@@ -586,7 +586,7 @@ public abstract class TrayPreferenceActivity extends TrayListActivity implements
                 R.layout.traypreference_list_content_material);
 
         mPreferenceHeaderItemResId = sa.getResourceId(
-                R.styleable.TrayPreferencesActivity_headerLayout,
+                R.styleable.TrayPreferencesActivity_ex_headerLayout,
                 R.layout.traypreference_header_item_material);
         mPreferenceHeaderRemoveEmptyIcon = sa.getBoolean(
                 R.styleable.TrayPreferencesActivity_headerRemoveIconIfEmpty,
