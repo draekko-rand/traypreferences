@@ -45,7 +45,7 @@ please see styles_device_defaults.xml.
 
     <style name="TrayPreferenceActivity.Material">
         <item name="layout">@layout/traypreference_list_content_material</item>
-        <item name="headerLayout">@layout/traypreference_header_item_material</item>
+        <item name="ex_headerLayout">@layout/traypreference_header_item_material</item>
         <item name="headerRemoveIconIfEmpty">true</item>
     </style>
 
