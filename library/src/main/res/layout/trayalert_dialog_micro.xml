@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:minHeight="64dp">
-        <FrameLayout android:id="@+android:id/custom"
+        <FrameLayout android:id="@+id/custom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </FrameLayout>
